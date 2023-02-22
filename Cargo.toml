@@ -5,3 +5,5 @@ edition = "2021"
 
 [dependencies]
 csv = "1.2.0"
+eval = "0.4.3"
+itertools = "0.10.5"

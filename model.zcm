@@ -5,13 +5,12 @@ def T;       // thuisquarantaine
 def Z;       // ziekenhuis respirator
 def z;       // ziekenhuis open
 def R;       // recovered
-def D;       // dood
 
 const beta  0.0001; // hoeveel contacten effectieve contacten zijn
 const n     0.0005; // natuurlijke sterfte
 const sigma 0.0007; // sterfte aan ziekte
 
-// S > E $(beta * S * I); // accuratere weergave
+S > E $(beta * S * I); // accuratere weergave
 
 S > E 0.01; // lambda
 E > I 0.12; // incubatie
@@ -27,7 +26,7 @@ S > R 0.01; // vaccinatie van vatbaren
 E > R 0.01; // vaccinatie van besmetten
 R > S 0.01; // immuniteitsverlies
 
-  > S $(100);  // geboorte van 100n constante term
+SEITZzR > - n;     // natuurlijke sterfte van iedereen
+EITZz   > - sigma; // ziektesterfte
 
-SEITZzR > D n;     // natuurlijke sterfte van iedereen
-EITZz   > D sigma; // ziektesterfte
+ - > S $(100);  // geboorte van 100: constante term
